@@ -7,9 +7,11 @@ app.use(express.json());
 
 let userRoutes = require("./routes/userRoutes");
 let postRoutes = require("./routes/postRoutes");
+let externalAPIRoutes = require("./routes/externalAPIRoutes");
 
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/externalapi", externalAPIRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Mysql application." });
