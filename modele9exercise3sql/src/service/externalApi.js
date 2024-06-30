@@ -13,6 +13,17 @@ const getExternalData = async (offset = 0, limit = 20) => {
   }
 };
 
+const getExternalDataByName = async (name = "ditto") => {
+  try {
+    const response = await axios.get(`${ExternalApiURL}/${name}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error fetching pokemon ${name} ${error.message}`);
+  }
+};
+
 module.exports = {
   getExternalData,
+  ExternalApiURL,
+  getExternalDataByName,
 };
